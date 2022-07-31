@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}">
+    <title>show</title>
+</head>
+<body>
+    <img src="../../static/img/Neovim-logo_400.png" alt="Neovim Logo">
+    <h1>Neovim Plugin Reviews</h1>
+    <div class="wrapper">
+        <div class="nav">
+            <a class="btn btn-dash btn-success" href="/dashboard">Dashboard</a>
+            <a class="btn btn-dash btn-primary" href="/logout">Logout</a>
+        </div>
+        <h2>{{ one_review.name }}</h2>
+        <h3>Reviewed by {{ one_review.creator.first_name }}</h3>
+        <div class="main container">
+            <div class="container">
+                <table class="show_one_review table">
+                    <tr>
+                        <td>Category:</td>
+                        <td>{{ one_review.category }}</td>
+                    </tr>
+                    <tr>
+                        <td>Likes:</td>
+                        <td>
+                            {{ one_review.user_ids_who_liked | length }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Content:</td>
+                        <td>{{ one_review.content }}</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            {% if session['id'] == one_review.creator.id %}
+                            <form action="/review/delete/{{one_review.id}}" method="POST">
+                                <input type="hidden" name="id" value="{{one_review.id}}">
+                                <button type="submit" class="btn btn-dash btn-danger">delete</button>
+                            </form>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <a class="btn btn-dash btn-success" href="/review/edit/{{one_review.id}}" role="button">edit</a>
+                        </td>
+                        </td>
+                        <td>
+                            {% if session['id'] in one_review.user_ids_who_liked %}
+                            <form action="/review/unlike" method="POST">
+                                <input type="hidden" name="id" value="{{one_review.id}}">
+                                <input type="hidden" name="user_id" value="{{session['id']}}">
+                                <button type="submit" class="btn btn-dash btn-danger">unlike</button>
+                            </form>
+                            {% else %}
+                            <form action="/review/like" method="POST">
+                                <input type="hidden" name="id" value="{{one_review.id}}">
+                                <input type="hidden" name="user_id" value="{{session['id']}}">
+                                <button type="submit" class="btn btn-dash btn-success">like</button>
+                            </form>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if session['id'] in one_review.user_ids_who_commented %}
+                                <a class="btn btn-dash btn-danger" href="/review/uncomment/{{one_review.id}}/{{session['id']}}">Comment</a>
+                            {% else %}
+                                <a class="btn btn-dash btn-success" href="/review/comment/{{one_review.id}}/{{session['id']}}">Comment</a>
+                            {% endif %}
+                            </td>
+                        </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='/js/script.js') }}"></script>
+</body>
+</html>
