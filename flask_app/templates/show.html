@@ -23,17 +23,17 @@
                 <table class="show_one_review table">
                     <tr>
                         <td>Category:</td>
-                        <td>{{ one_review.category }}</td>
+                        <td colspan='3'>{{ one_review.category }}</td>
                     </tr>
                     <tr>
                         <td>Likes:</td>
-                        <td>
+                        <td colspan='3'>
                             {{ one_review.user_ids_who_liked | length }}
                         </td>
                     </tr>
                     <tr>
                         <td>Content:</td>
-                        <td>{{ one_review.content }}</td>
+                        <td colspan='3'>{{ one_review.content }}</td>
                     </tr>
                     <tr>
                         <td>
@@ -45,7 +45,9 @@
                             {% endif %}
                         </td>
                         <td>
+                            {% if session['id'] == one_review.creator.id %}
                             <a class="btn btn-dash btn-success" href="/review/edit/{{one_review.id}}" role="button">edit</a>
+                            {% endif %}
                         </td>
                         </td>
                         <td>
@@ -64,13 +66,24 @@
                             {% endif %}
                         </td>
                         <td>
-                            {% if session['id'] in one_review.user_ids_who_commented %}
-                                <a class="btn btn-dash btn-danger" href="/review/uncomment/{{one_review.id}}/{{session['id']}}">Comment</a>
+                            {% if session['id'] in comments | map(attribute='user_id') %}
+                            <form action="/comment/delete" method="POST">
+                                <input type="hidden" name="review_id" value="{{one_review.id}}">
+                                <input type="hidden" name="user_id" value="{{session['id']}}">
+                                <button type="submit" class="btn btn-dash btn-danger">uncomment</button>
+                            </form>
                             {% else %}
-                                <a class="btn btn-dash btn-success" href="/review/comment/{{one_review.id}}/{{session['id']}}">Comment</a>
+                                <a class="btn btn-dash btn-success" href="/comment/{{one_review.id}}/{{session['id']}}">Comment</a>
                             {% endif %}
                             </td>
                         </tr>
+                        {%  for c in comments %}
+                        <tr>
+                            <td colspan='4'>
+                                {{ c.comment }} - by {{c.users_who_commented.first_name}}
+                            </td>
+                        </tr>
+                        {% endfor %}
                 </table>
             </div>
         </div>

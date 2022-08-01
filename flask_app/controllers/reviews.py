@@ -4,7 +4,7 @@ from flask_app import app
 from flask_app import Flask, render_template, request, redirect, session, url_for, flash, bcrypt
 
 # Import models class
-from flask_app.models import user, review
+from flask_app.models import user, review, comment
 
 # CRUD CREATE ROUTES
 @app.route('/review/create', methods=['POST'])
@@ -34,11 +34,6 @@ def add_like_review():
     review.Review.like(request.form)
     return redirect('/dashboard')
 
-@app.route('/review/comment/create', methods=['POST'])
-def add_comment_review():
-    """Add a comment to the review"""
-    review.Review.comment(request.form)
-    return redirect(f"/review/show/{request.form['review_id']}")
 
 @app.route('/review/new')
 def review_new():
@@ -88,17 +83,7 @@ def review_show_one(review_id):
     # Create additonal data dict for user
     data_user = { 'id': session['id'] }
     # Call classmethods and render_template edit template with data filled in
-    return render_template('show.html', one_review=review.Review.get_one_review(data), user=user.User.get_user_by_id(data_user))
-
-@app.route('/review/comment/<int:review_id>/<int:user_id>')
-def review_show_comment(review_id, user_id):
-    """Add comment to review based on user_id and review_id"""
-    # Check that user logged in
-    if 'id' not in session:
-        flash("Please register or login to continue", "danger")
-        return redirect('/')
-    return render_template('comment.html', review_id=review_id, user_id=user_id)
-
+    return render_template('show.html', one_review=review.Review.get_one_review(data), user=user.User.get_user_by_id(data_user), comments=comment.Comment.get_review_comments(data))
 
 # CRUD UPDATE ROUTES
 # Show review to edit with populated info
