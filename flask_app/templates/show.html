@@ -23,17 +23,17 @@
                 <table class="show_one_review table">
                     <tr>
                         <td>Category:</td>
-                        <td>{{ one_review.category }}</td>
+                        <td colspan='3'>{{ one_review.category }}</td>
                     </tr>
                     <tr>
                         <td>Likes:</td>
-                        <td>
+                        <td colspan='3'>
                             {{ one_review.user_ids_who_liked | length }}
                         </td>
                     </tr>
                     <tr>
                         <td>Content:</td>
-                        <td>{{ one_review.content }}</td>
+                        <td colspan='3'>{{ one_review.content }}</td>
                     </tr>
                     <tr>
                         <td>
