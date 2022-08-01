@@ -4,13 +4,50 @@
     vertical-align: top;
     box-sizing: border-box;
 }
+/* NEW CSS RESPONSIVE */
 
-body {
-    background-color: navajowhite;
+.header {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    padding: 10px;
 }
+
+#header-img {
+    align-content: center;
+    margin: 0 auto 10px auto;
+}
+
+#header-title {
+    align-content: center;
+    margin: 0 auto 20px auto;
+}
+
+.row {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.container-form {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.form_create {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* OLD CSS */
+
 
 /* login specific */
 .container-user {
@@ -39,10 +76,6 @@ body {
     flex-direction: row;
 }
 
-.form_create {
-    display: flex;
-    flex-direction: column;
-}
 
 .input-group {
     margin-bottom: 10px;
