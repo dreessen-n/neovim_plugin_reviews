@@ -45,7 +45,8 @@ class Review:
         query = '''SELECT * FROM reviews
                 JOIN users AS creators ON reviews.user_id = creators.id
                 LEFT JOIN likes ON likes.review_id = reviews.id
-                LEFT JOIN users AS users_who_liked ON likes.user_id = users_who_liked.id;'''
+                LEFT JOIN users AS users_who_liked ON likes.user_id = users_who_liked.id
+                ORDER BY reviews.name ASC;'''
         results = connectToMySQL(cls.db).query_db(query)
         all_reviews = []
         for r in results:
