@@ -24,8 +24,6 @@ class Review:
         self.creator = None
         self.user_ids_who_liked = []
         self.users_who_liked = []
-        self.user_ids_who_commented = []
-        self.comments = []
 
     # CRUD CREATE METHODS
     @classmethod
@@ -39,10 +37,6 @@ class Review:
         query = "INSERT INTO likes (user_id, review_id) VALUES (%(user_id)s, %(id)s);"
         return connectToMySQL(cls.db).query_db(query,data)
 
-    @classmethod
-    def comment(cls, data):
-        """Add comment to review """
-        Pass
 
     # CRUD READ METHODS -- Modified for many to many
     @classmethod
@@ -111,20 +105,24 @@ class Review:
         query = '''SELECT * FROM reviews
                 JOIN users AS creators ON reviews.user_id = creators.id
                 LEFT JOIN likes ON likes.review_id = reviews.id
-                LEFT JOIN users AS users_who_liked ON likes.user_id = users_who_liked.id WHERE reviews.id = %(id)s;'''
+                LEFT JOIN users AS users_who_liked ON likes.user_id = users_who_liked.id
+                WHERE reviews.id = %(id)s;'''
         result = connectToMySQL(cls.db).query_db(query, data)
-        # Now due to fav; we can get back multiple rows or no rows (if no fav)
+        # Now due to fav and comments; we can get back multiple rows or no rows
+        # (if no fav or on comments)
         # So we need to check for both conditions
         # First condition no results; return False
         if len(result) < 1:
             return False
-        # Check if multiple rows (or fav)
-        # If one row then review so set to True to start
+        # Check if multiple rows (or fav and/or comments)
+        # If one row then review so set to True to start check
         new_review = True
         for r in result:
             if new_review:
                 # If this is the first row
+                # Create the review object
                 review = cls(result[0])
+                # Create user_data dict for the creator of review
                 user_data = {
                     'id': r['creators.id'],
                     'first_name': r['first_name'],
@@ -135,11 +133,11 @@ class Review:
                     'updated_at': r['creators.updated_at']
                 }
                 one_user = user.User(user_data)
-                # Set user to creator in review
+                # Set one_user to creator in review
                 review.creator = one_user
                 # Set new_review to False once we create 
                 new_review = False
-            # if fav data associate it with user
+            # if any fav data associate it with user
             if r['users_who_liked.id']:
                 users_who_liked_data = {
                     'id': r['users_who_liked.id'],
@@ -160,7 +158,7 @@ class Review:
 
     # CRUD UPDATE METHODS
     @classmethod
-    def gpdate_review(cls,data):
+    def update_review(cls,data):
         """Update the review"""
         query = "UPDATE reviews SET name=%(name)s, category=%(category)s, content=%(content)s WHERE reviews.id=%(id)s;"
         return connectToMySQL(cls.db).query_db(query,data)
