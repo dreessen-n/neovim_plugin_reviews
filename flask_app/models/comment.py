@@ -21,6 +21,7 @@ class Comment:
         self.review_id = data['review_id']
         self.users_who_commented = user.User.get_user_by_id({"id": self.user_id})
 
+    # CRUD Create
     @classmethod
     def create_comment(cls, data):
         """Add comment to comment tbl"""
@@ -28,7 +29,7 @@ class Comment:
         VALUES (%(comment)s, %(user_id)s, %(review_id)s);'''
         return connectToMySQL(cls.db).query_db(query,data)
 
-# CRUD Read
+    # CRUD Read
     @classmethod
     def get_review_comments(cls, data):
         """Get comments based on review id"""
@@ -41,4 +42,21 @@ class Comment:
             comments.append(cls(r))
         return comments
 
+    # CRUD Delete
+    @classmethod
+    def delete_comment(cls, data):
+        """Delete comment from review; based on user_id"""
+        query = '''DELETE FROM comments
+        WHERE user_id=%(user_id)s AND review_id=%(review_id)s;'''
+        return connectToMySQL(cls.db).query_db(query,data)
+
+    # FORM VALIDATION
+    @staticmethod
+    def validate_comment(comment):
+        """Validate the new review create form"""
+        is_valid = True # We set True until False
+        if len(comment['comment']) < 20:
+            flash("The comment must be at least 20 characters.", "danger")
+            is_valid = False
+        return is_valid
 
