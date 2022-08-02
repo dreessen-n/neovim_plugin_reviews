@@ -1,0 +1,45 @@
+Solo Project Proposal for Neal Dreessen
+
+My project is call "Neovim Plugin Reviews"
+
+I started using vim about two months before bootcamp started.
+I got way into it. 
+I really love using the motions and as many keyboard commands as I can.
+During bootcamp, I built out my own IDE in neovim (a version of vim).
+I added plugins for code completion, colorschemes, languages, formatting, etc.
+What I wish I had during the build was some reviews on the different options of plugins out there. 
+Trying to decide between similar plugins was tough.
+
+So for my project, that is what I am building... a review app on neovin plugins.
+The idea is users could write reviews about plugins they like/dislike. 
+Users could like others reviews.
+User would be able to comment on others reviews.
+Users could only edit, delete there own reviews.
+Users can add only one like or comment to any review.
+Users can unlike or uncomment any review.
+
+It will be built out in Python/flask.
+
+MY FEATURES LIST:
+
+REQUIRED: MVP
+- project on GitHub
+- .gitignore (for python and flask)
+- All CRUD on a non-user table
+- CSS implemented, and other static content (img)
+- Data validation with errors shown
+- Login and Registration with validations
+- protected routes; user must be logged in
+- app will have one-to-many relationships
+
+BONUS: (cool features)
+- app will be responsive
+- app will be built with bootstrap
+- app will have many-to-many relationships
+
+BONUS: (backlog/hopefuls)
+- deploy app on AWS
+- Add in an API 
+
+
+

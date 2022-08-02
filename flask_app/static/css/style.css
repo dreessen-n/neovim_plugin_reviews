@@ -22,15 +22,80 @@
     margin: 0 auto 20px auto;
 }
 
-.row {
-    display: flex;
+#header-img-logReg {
     align-content: center;
-    justify-content: center;
+    margin: 0 auto 10px auto;
 }
 
+#header-title-logReg {
+    align-content: center;
+    margin: 0 auto 20px auto;
+}
+
+.nav {
+    margin: 4px;
+    justify-content: flex-end;
+}
+
+.btn-home {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* on all templates */
 .container {
     display: flex;
     flex-direction: column;
+    margin: 0 10px 0 10px;
+}
+
+/* class on container on LogReg */
+.logReg {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.logReg-left {
+    padding: 5px;
+}
+
+.logReg-right {
+    padding: 5px;
+}
+
+.btn-logReg {
+    width: 100px;
+}
+
+/* class on container on new review */
+.new {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.btn-new {
+    width: 100px;
+}
+
+/* class on container on edit review */
+.edit {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.btn-edit {
+    width: 100px;
+}
+
+
+/* class on container on show review */
+.show {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 
 .container-form {
@@ -43,79 +108,6 @@
 .form_create {
     display: flex;
     flex-direction: column;
-}
-
-
-/* OLD CSS */
-
-
-/* login specific */
-.container-user {
-    width: 400px;
-    background-color: white;
-    padding: 20px;
-    margin: 30px;
-    border-radius: 15px;
-}
-
-.dashboard {
-    width: 800px;
-}
-
-.dash-nav {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.btn-dash {
-    margin: 4px;
-}
-
-.main {
-    display: flex;
-    flex-direction: row;
-}
-
-
-.input-group {
-    margin-bottom: 10px;
-}
-
-.btn-home {
-    display: flex;
-    justify-content: flex-end;
-}
-
-/* end login spec */
-
-.container {
-    flex: 1;
-    background-color: white;
-    padding: 20px;
-    margin: 10px;
-    border-radius: 15px;
-}
-
-.wrapper {
-    width: 900px;
-    margin: 10px;
-}
-
-.nav {
-    margin: 4px;
-    justify-content: flex-end;
-}
-
-.main {
-    display: flex;
-    width: 800px;
-    flex-direction: row;
-}
-
-.link {
-    display: flex;
-    flex-direction: row;
-    align-content: center;
 }
 
 h1 {
@@ -142,7 +134,13 @@ button {
     padding: 4px;
 }
 
+tr {
+    text-align: center;
+}
+
 td {
     padding: 10px;
     font-weight: bold;
 }
+
+
