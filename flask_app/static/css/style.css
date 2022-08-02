@@ -3,9 +3,9 @@
     padding: 0;
     vertical-align: top;
     box-sizing: border-box;
+    font-family: Monaco;
 }
 /* NEW CSS RESPONSIVE */
-
 .header {
     display: flex;
     flex-direction: column;
@@ -33,6 +33,7 @@
 }
 
 .nav {
+    display: flex;
     margin: 4px;
     justify-content: flex-end;
 }
@@ -40,6 +41,8 @@
 .btn-home {
     display: flex;
     justify-content: flex-end;
+    align-content: flex-start;
+    width: 100px;
 }
 
 /* on all templates */
@@ -90,12 +93,30 @@
     width: 100px;
 }
 
+.edit-textarea {
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
 
 /* class on container on show review */
 .show {
     display: flex;
     flex-direction: row;
     justify-content: center;
+}
+
+.show-row {
+    text-align: left;
+}
+
+.show-comments-row {
+    text-align: left;
+}
+
+.row-show-btns {
+    display: flex;
+    align-content: center;
 }
 
 .container-form {

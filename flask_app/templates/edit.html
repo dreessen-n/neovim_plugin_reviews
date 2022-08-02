@@ -45,12 +45,14 @@
                 <h3>Edit Review</h3>
                     <form class="form_create"action="/review/update" method="POST">
                         <input type="hidden" name="id" value="{{ one_review.id }}">
-                        <label for="name">name</label>
+                        <label for="name">Name</label>
                         <input type="text" name="name" value="{{ one_review.name }}" >
-                        <label for="category">category</label>
+                        <label for="category">Category</label>
                         <input type="text" name="category" value="{{ one_review.category }}" >
-                        <label for="content">content</label>
-                        <input type="text" name="content" value="{{ one_review.content }}">
+                        <label for="content">Content</label>
+                        <!--<input type="text" name="content" value="{{
+                            one_review.content }}">-->
+                        <textarea class="edit-textarea" rows="10" name="content" placeholder="{{ one_review.content }}" type="input"></textarea>
                         <button class="btn btn-edit btn-primary" type="submit">submit</button>
                     </form>
                 </div>
