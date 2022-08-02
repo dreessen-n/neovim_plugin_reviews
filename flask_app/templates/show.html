@@ -27,24 +27,25 @@
                 <h2>{{ one_review.name }}</h2>
                 <h3>Reviewed by {{ one_review.creator.first_name }}</h3>
             </div>
-            <div class="row-show-btns">
+            <div class='row'>
                 <table>
                     <tr>
                         <td>Category:</td>
-                        <td class="show-row" colspan='3'>{{ one_review.category }}</td>
+                        <td class="show-row" colspan='4'>{{ one_review.category }}</td>
                     </tr>
                     <tr>
                         <td>Likes:</td>
-                        <td class="show-row" colspan='3'>
+                        <td class="show-row" colspan='4'>
                             {{ one_review.user_ids_who_liked | length }}
                         </td>
                     </tr>
                     <tr>
                         <td>Content:</td>
-                        <td class="show-row" colspan='3'>{{ one_review.content }}</td>
+                        <td class="show-row" colspan='4'>{{ one_review.content }}</td>
                     </tr>
-                    <tr>
+                    <tr class="btn-row">
                         <td>
+                            <!-- delete button -->
                             {% if session['id'] == one_review.creator.id %}
                             <form action="/review/delete/{{one_review.id}}" method="POST">
                                 <input type="hidden" name="id" value="{{one_review.id}}">
@@ -53,12 +54,13 @@
                             {% endif %}
                         </td>
                         <td>
+                            <!-- Edit button -->
                             {% if session['id'] == one_review.creator.id %}
                             <a class="btn  btn-success" href="/review/edit/{{one_review.id}}" role="button">edit</a>
                             {% endif %}
                         </td>
-                        </td>
                         <td>
+                            <!-- like button -->
                             {% if session['id'] in one_review.user_ids_who_liked %}
                             <form action="/review/unlike" method="POST">
                                 <input type="hidden" name="id" value="{{one_review.id}}">
@@ -74,6 +76,7 @@
                             {% endif %}
                         </td>
                         <td>
+                            <!-- comment button -->
                             {% if session['id'] in comments | map(attribute='user_id') %}
                             <form action="/comment/delete" method="POST">
                                 <input type="hidden" name="review_id" value="{{one_review.id}}">

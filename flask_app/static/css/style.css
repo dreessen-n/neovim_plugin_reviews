@@ -110,13 +110,12 @@
     text-align: left;
 }
 
-.show-comments-row {
-    text-align: left;
+.btn-row {
+    align-items: center;
 }
 
-.row-show-btns {
-    display: flex;
-    align-content: center;
+.show-comments-row {
+    text-align: left;
 }
 
 .container-form {
@@ -162,6 +161,11 @@ tr {
 td {
     padding: 10px;
     font-weight: bold;
+    vertical-align: center;
+}
+
+form {
+    margin: 5px;
 }
 
 

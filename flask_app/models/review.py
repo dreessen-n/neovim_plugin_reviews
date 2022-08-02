@@ -182,13 +182,13 @@ class Review:
         """Validate the new review create form"""
         is_valid = True # We set True until False
         if len(review['name']) < 2:
-            flash("The Title must be at least 2 characters.", "danger")
+            flash("The Name must be at least 2 characters.", "danger")
             is_valid = False
         if len(review['category']) < 2:
-            flash("The description must be at least 2 characters.", "danger")
+            flash("The Category must be at least 2 characters.", "danger")
             is_valid = False
-        if len(review['content']) < 1:
-            flash("The price must be greater than 0.", "danger")
+        if len(review['content']) < 20:
+            flash("The Content must be greater than 20.", "danger")
             is_valid = False
         return is_valid
 

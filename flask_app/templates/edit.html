@@ -50,9 +50,7 @@
                         <label for="category">Category</label>
                         <input type="text" name="category" value="{{ one_review.category }}" >
                         <label for="content">Content</label>
-                        <!--<input type="text" name="content" value="{{
-                            one_review.content }}">-->
-                        <textarea class="edit-textarea" rows="10" name="content" placeholder="{{ one_review.content }}" type="input"></textarea>
+                        <textarea class="edit-textarea" rows="10" name="content" type="input">{{ one_review.content }}</textarea>
                         <button class="btn btn-edit btn-primary" type="submit">submit</button>
                     </form>
                 </div>
