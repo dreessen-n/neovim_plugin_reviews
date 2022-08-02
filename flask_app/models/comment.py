@@ -58,5 +58,9 @@ class Comment:
         if len(comment['comment']) < 20:
             flash("The comment must be at least 20 characters.", "danger")
             is_valid = False
+        if comment['comment'].find("%"):
+            flash("The comment can not contain the character %.", "danger")
+            is_valid = False
+
         return is_valid
 
