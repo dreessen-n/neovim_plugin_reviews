@@ -5,6 +5,16 @@
     box-sizing: border-box;
     font-family: Monaco;
 }
+
+.container-errorMes {
+    display: flex;
+    justify-content: center;
+}
+
+.alert {
+    margin: 10px;
+}
+
 /* NEW CSS RESPONSIVE */
 .header {
     display: flex;
@@ -40,7 +50,6 @@
 
 .btn-home {
     display: flex;
-    justify-content: flex-end;
     align-content: flex-start;
     width: 100px;
 }
@@ -49,7 +58,6 @@
 .container {
     display: flex;
     flex-direction: column;
-    margin: 0 30px 25px 5px;
 }
 
 /* class on container on LogReg */
@@ -130,6 +138,12 @@
     flex-direction: column;
 }
 
+.form_create_comment {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+
 h1 {
     color: royalblue;
 }
@@ -150,7 +164,7 @@ input {
     margin: 5px;
 }
 
-button {
+.btn {
     padding: 4px;
 }
 
