@@ -107,6 +107,10 @@
     margin-bottom: 10px;
 }
 
+.comment {
+    max-width: 500px;
+}
+
 
 /* class on container on show review */
 .show {
