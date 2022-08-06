@@ -43,9 +43,15 @@
                         <td>{{ r.category }}</td>
                         <!-- NEED TO GET CREATORS NAME -->
                         <td>By {{ r.creator.first_name }}</td>
+                        {% if (r.user_ids_who_liked | length) == 1 %}
+                        <td>
+                            {{ r.user_ids_who_liked | length }} Like
+                        </td>
+                        {% else %}
                         <td>
                             {{ r.user_ids_who_liked | length }} Likes
                         </td>
+                        {% endif %}
                         <td>
                             <div class="link">
                                 {% if r.user_id == session.id %}
