@@ -30,6 +30,7 @@
                 <thead>
                     <tr>
                         <th>Plugin</th>
+                        <th>Category</th>
                         <th>Reviewer</th>
                         <th>Likes</th>
                         <th>Edit</th>
@@ -39,6 +40,7 @@
                     {% for r in all_reviews %}
                     <tr>
                         <td><a href="/review/show/{{r.id}}">{{ r.name }}</a></td>
+                        <td>{{ r.category }}</td>
                         <!-- NEED TO GET CREATORS NAME -->
                         <td>By {{ r.creator.first_name }}</td>
                         <td>
