@@ -15,6 +15,8 @@ This is a review app for reviewing plugins for Neovim.
 > The plugin heading on the dashboard links to the reivew on the app.
 >
 > The plugin heading in the review is linked so user can quickly view the repo on GitHub.
+>
+> The dashboard is sorted by category so users can see reviews of similar plugins.
 
 ## Dashboard 
 
