@@ -11,6 +11,8 @@ This is a review app for reviewing plugins for Neovim.
 > Other users can 'like/unlike' or 'comment/uncomment' on the reviews but only once per review.
 >
 > Once a user has like/comment on a reivew, the button turns red to delete that like/comment.
+>
+> The plugin heading is linked so user can quickly view the repo on GitHub.
 
 ## Dashboard 
 
