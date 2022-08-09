@@ -4,7 +4,7 @@
 
 This is a review app for reviewing plugins for Neovim.
 
-Users can signup to write reviews on their favorite/worst plugins.
+Users can signup to write reviews on their favorite/worst plugins. The creator of a review will see edit and delete buttons. Other users will not.
 
 Other users can 'like' or 'comment' on those reviews (one per review)
 
