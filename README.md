@@ -20,7 +20,7 @@ Other users can 'like' or 'comment' on those reviews (one per review)
 
 ![new](https://user-images.githubusercontent.com/99504059/183553635-0cb26e37-d851-4e3c-8fc2-1389281e45b3.png)
 
-## Edit a Review let's you ... edit. Validation here as well
+## Edit a Review let's you ... edit. Fields are prepopulated. Validation here as well
 
 ![edit](https://user-images.githubusercontent.com/99504059/183553705-84633ef8-90eb-44b4-bce8-56b978e00053.png)
 
