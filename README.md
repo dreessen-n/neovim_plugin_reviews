@@ -24,4 +24,4 @@ Other users can 'like' or 'comment' on those reviews (one per review)
 
 ![edit](https://user-images.githubusercontent.com/99504059/183553705-84633ef8-90eb-44b4-bce8-56b978e00053.png)
 
-## Delete: There is also a delete option on the show page. This only shows for users who created the review.
+***There is also a delete option on the show page. This only shows for users who created the review.
