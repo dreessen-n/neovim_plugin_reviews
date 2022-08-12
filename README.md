@@ -20,18 +20,18 @@ This is a review app for reviewing plugins for Neovim.
 
 ## Dashboard 
 
-![dashboard](https://user-images.githubusercontent.com/99504059/183553484-e68d3a7f-195b-42b3-991a-6f702ad43b10.png)
+![dashboard](https://user-images.githubusercontent.com/99504059/184416513-8e66a197-4863-4cc0-b334-2976cf98499f.png)
 
 ## Show a Review 
 
-![show](https://user-images.githubusercontent.com/99504059/183553568-b459ba5b-c4e6-4bea-aad1-b21a16aea4e3.png)
+![show](https://user-images.githubusercontent.com/99504059/184416567-99cc4555-5ced-44bf-902e-1251f631be91.png)
 
 ## Add a Review 
 
-![new](https://user-images.githubusercontent.com/99504059/183553635-0cb26e37-d851-4e3c-8fc2-1389281e45b3.png)
+![new](https://user-images.githubusercontent.com/99504059/184416652-29125885-07fa-4a85-89c3-fd4b49c40ba9.png)
 
-## Edit a Review 
+## Edit a Review
 
-![edit](https://user-images.githubusercontent.com/99504059/183553705-84633ef8-90eb-44b4-bce8-56b978e00053.png)
+![edit](https://user-images.githubusercontent.com/99504059/184416684-d9c1c538-d0e9-41ad-bcf4-df048138f6c1.png)
 
 ***There is also a delete option on the show page. This only shows for users who created the review.
