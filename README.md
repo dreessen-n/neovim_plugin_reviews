@@ -22,7 +22,7 @@ This is a review app for reviewing plugins for Neovim.
 
 ## Show a Review 
 
-![show](https://user-images.githubusercontent.com/99504059/184416567-99cc4555-5ced-44bf-902e-1251f631be91.png)
+![show](https://user-images.githubusercontent.com/99504059/184420015-bf54a0b3-a967-438b-a25b-0d2ed8aaa356.png)
 
 ## Add a Review 
 
